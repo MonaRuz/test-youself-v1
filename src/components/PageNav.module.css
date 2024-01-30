@@ -1,0 +1,15 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.login{
+    color:#baffc9;
+    font-size: 25px;
+    text-decoration: none;
+    border: 1px solid #baffc9;
+    padding: 3px 6px;
+    margin:10px 20px;
+    display: block;
+}
