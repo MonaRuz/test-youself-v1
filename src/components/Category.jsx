@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 import styles from "./Category.module.css"
 import Button from "./Button"
 
@@ -13,26 +13,30 @@ export default function Category() {
 				Progress: <span className={styles.values}>X / X</span>
 			</p>
 			<p>
+				Current score <span className={styles.values}> X %</span>
+			</p>
+			<p>
 				Highscore: <span className={styles.values}>X</span> %
 			</p>
-
-				<NavLink to='test'>
+			<div className={styles.buttons}>
+				<Link to='test'>
 					<Button
 						textColor='var(--menu-color)'
 						bgColor='var(--main-bg-color)'
 					>
 						Test
 					</Button>
-				</NavLink>
+				</Link>
 
-				<NavLink to='test'>
+				<Link to='test'>
 					<Button
 						textColor='var(--menu-color)'
 						bgColor='var(--main-bg-color)'
 					>
 						Edit
 					</Button>
-				</NavLink>
+				</Link>
+			</div>
 		</div>
 	)
 }

@@ -6,6 +6,7 @@ import Test from "./components/Test";
 import PageNotFound from "./components/PageNotFound";
 import Categories from "./components/Categories";
 import Questions from "./components/Questions";
+import CreateNewCategory from "./components/CreateNewCategory";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route index element={<Categories/>}/>
           <Route path="test" element={<Test/>}/>
           <Route path="category" element={<Questions/>}/>
+          <Route path="new" element={<CreateNewCategory/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>}/>
       </Routes>

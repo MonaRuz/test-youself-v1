@@ -11,3 +11,7 @@
 .values{
     color: var(--positive-color);
 }
+.buttons{
+    display: flex;
+    flex-direction: column;
+}

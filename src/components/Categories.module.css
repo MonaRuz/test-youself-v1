@@ -1,4 +1,7 @@
 .box{
     display: flex;
-    margin-left: 38px;
+}
+.instructions{
+    color:var(--text-color);
+    padding: 10px;
 }

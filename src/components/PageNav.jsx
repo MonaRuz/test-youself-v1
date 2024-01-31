@@ -7,11 +7,10 @@ export default function PageNav() {
 	return (
 		<nav>
 			<ul className={styles.nav}>
-				
-				
-        <li>
+				<li>
 					<Logo />
 				</li>
+				
 				<li>
 					<NavLink to='login'>
 						<Button
