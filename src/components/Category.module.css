@@ -1,0 +1,13 @@
+.category{
+    color: var(--text-color);
+    text-align: center;
+    margin: 0 10px;
+    padding:0 25px 10px;
+    border: 2px solid var(--title-color);
+}
+.title{
+    color: var(--title-color)
+}
+.values{
+    color: var(--positive-color);
+}

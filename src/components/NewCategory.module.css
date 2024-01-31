@@ -1,0 +1,14 @@
+.category{
+    color: var(--text-color);
+    margin:0 10px;
+    padding:0 25px;
+    border: 2px solid var(--title-color);
+}
+.title{
+    color: var(--title-color)
+}
+.plus{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 50px;
+}

@@ -7,14 +7,19 @@ export default function PageNav() {
 	return (
 		<nav>
 			<ul className={styles.nav}>
-				<li>
+				
+				
+        <li>
 					<Logo />
 				</li>
 				<li>
-					<NavLink
-						to='login'
-					>
-						<Button textColor="var(--menu-color)" bgColor="var(--main-bg-color)">Login</Button>
+					<NavLink to='login'>
+						<Button
+							textColor='var(--menu-color)'
+							bgColor='var(--main-bg-color)'
+						>
+							Login
+						</Button>
 					</NavLink>
 				</li>
 			</ul>

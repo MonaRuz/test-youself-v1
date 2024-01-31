@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default function Button ({textColor="black", bgColor="white", onClick, children, borderWidth=1,borderRad=0,childrenSize=18,className}) {
     const buttonStyle = {
 		padding: "10px",
-		margin: "20px",
+		margin: "10px",
 		fontSize: `${childrenSize}px`,
 		minWidth: "150px",
 		height: "45px",

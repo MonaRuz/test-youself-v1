@@ -9,4 +9,5 @@ body{
   --text-color:#bae1ff;
 
   background-color: var(--main-bg-color);
+  padding: 5px 20px;
 }
