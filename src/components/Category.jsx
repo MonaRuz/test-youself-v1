@@ -5,7 +5,7 @@ import Button from "./Button"
 export default function Category() {
 	return (
 		<div className={styles.category}>
-			<h2 className={styles.title}>Name of category</h2>
+			<h2 className={styles.title}>React</h2>
 			<p>
 				<span className={styles.values}>X</span> questions
 			</p>
@@ -13,13 +13,14 @@ export default function Category() {
 				Progress: <span className={styles.values}>X / X</span>
 			</p>
 			<p>
-				Current score <span className={styles.values}> X %</span>
+				Current score <span className={styles.values}> X </span>%
 			</p>
 			<p>
 				Highscore: <span className={styles.values}>X</span> %
 			</p>
 			<div className={styles.buttons}>
-				<Link to='test'>
+				<Link to='test' >
+					
 					<Button
 						textColor='var(--menu-color)'
 						bgColor='var(--main-bg-color)'
@@ -28,7 +29,7 @@ export default function Category() {
 					</Button>
 				</Link>
 
-				<Link to='test'>
+				<Link to='questions'>
 					<Button
 						textColor='var(--menu-color)'
 						bgColor='var(--main-bg-color)'

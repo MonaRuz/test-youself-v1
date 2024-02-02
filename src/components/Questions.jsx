@@ -1,6 +1,9 @@
+import styles from "./Questions.module.css"
 
-export default function Questions() {
+export default function Questions({questions}) {
   return (
-    <div>Questions</div>
+    <ul className={styles.list}>
+      {questions.map((question)=><><li className={styles.question} key={question.id}>{question.question}</li><hr className={styles.line}/></>)}
+    </ul>
   )
 }

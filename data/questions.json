@@ -1,5 +1,5 @@
 {
-	"questions": [
+	"React": [
 		{
 			"id": "0a66d618-2982-43d3-aecf-53786a447a10",
 			"question": "Jaký je rozdíl mezi imperativním a deklarativním kódem a jaký typ je využíván v Reactu a proč?",
@@ -1149,6 +1149,97 @@
 		},
 		{
 			"id":"169dcd46-fc11-4fbd-9933-8cab021e344a","question":"Co je index route?","answer":"Je to Route nebo child route, který se bude defaultně zobrazovat při načtení stránky."	
+		}
+	],"JavaScript":[
+		{
+			"id": "7aaff7d2-0a9e-451d-858b-6b2624226bb7",
+			"question": "Co je to v JS destructuring a jak se používá?",
+			"answer": "Pomocí destructuringu jednoduše vytáhneme data z objektu či pole. Z objektů získáme data tečkovou notací, z pole indexem. Pokud chceme získat všechna data z objektu: const {var1,va2,var3} = object, kde musí být pořadí proměnných stejná jako v originálním objektu. V případě pole všechna data vytáhneme: const [var1,var2,var3] = arr."
+		},
+		{
+			"id": "e9c70372-d30e-4655-83df-59a620444fdd",
+			"question": "Co je to rest operátor a jak se používá?",
+			"answer": "Používá se k uložení pole do jiného pole takto: const [var1,var2,…var3] = arr. Výsledek bude var1, var2, [var3,var4]. Lze ho umístit pouze na konec destructuringu pole."
+		},
+		{
+			"id": "50518cb9-e941-4849-81f8-9721dd9df299",
+			"question": "Co je to Spread operator a jak se používá?",
+			"answer": "Používá se k vytvoření nového pole, kam můžeme přidat další prvek, aniž bychom měli pole v poli. Lze ho použít i na objekty a může být umístěn jak na začátku, tak na konci pole. Const newArray=[…arr, var1, var2]. V rámci objektů lze pomocí tohoto operátoru přidávat i měnit vlastnosti. Const updatedObject = {…object, var1: val1}, kde var1 může být jak nová vlastnost, tak vlastnost původního objektu, ale přepsaná. Pozor, přepsání hodnot musí být až po spread operátoru, jinak se hodnota nepřepíše."
+		},
+		{
+			"id": "9c94bed0-4837-4683-bc5a-25e2a16c4c8a",
+			"question": "Co je to template literals?",
+			"answer": "Vlastnost JS od ES6 umožňující zahrnout proměnné a JS výrazy do stringů. Používají se pomocí „backticks“, které uzavírají string a uvnitř používáme proměnné a výrazy pomocí ${výraz}."
+		},
+		{
+			"id": "c7c69ab4-e7c4-4a76-bd06-6f2bc5cf92c1",
+			"question": "Co je to ternární operátor?",
+			"answer": "Nahrazuje podmínku if/else tam, kde je nemůžeme použít a má 3 části: 1) podmínka, kde je výsledek true/false. 2) Výsledek operace, pokud je výsledek podmínky true. Výsledek operace, pokud je výsledek podmínky false Jednotlivé části jsou rozděleny takto: Podmínka ? hodnota, když true : hodnota, když false. Hodí se, když chceme namísto prostého true nebo false vrátit nějakou hodnotu."
+		},
+		{
+			"id": "ce2025e8-d8a2-46be-a858-678402ca5a38",
+			"question": "Co jsou arrow funkce?",
+			"answer": "Nový způsob psaní funkcí od verze ES6. Pomáhají rychle a jednoduše psát zejména jednořádkové funkce. Normální funkce: function getResult (str) { returnstr.split (“-“) [0] }. Arrow funkce: (str)=>str.split(“-“)[0].Arrow funkce s uložením do proměnné: const result=(str)=>str.split(“-“)[0]."
+		},
+		{
+			"id": "1ef2a34e-e806-4b65-a015-8131583a0895",
+			"question": "Jaké známe v JS short-circuiting operátory a jak se používají?",
+			"answer": "&&: Pokud je 1. operand true, vrátí se 2. hodnota, pokud je false, vrátí se false. true && “some string“ vrátí “some string“. false && “some string“ vrátí false. ||: Pokud je první hodnota true, vrací 1. hodnotu, pokud false, vrací druhou hodnotu. true || “some string“ vrátí true. false || “some string“ vrátí some string. Pro oba operátory platí, že fungují i pro truthy a falsey hodnoty."
+		},
+		{
+			"id": "73736c1d-00b0-4f68-a5a9-43986c3132dc",
+			"question": "Co uděláme, když chceme použít short-circuiting, ale zároveň nechceme, aby byla 0 považována za falsey hodnotu?",
+			"answer": "Použijeme nulový koalescenční operátor (nullish coalescing operator) ??, který funguje stejně jako ||, ale některý falsey hodnoty bere jako truthy."
+		},
+		{
+			"id": "1673809e-0164-44e2-9509-59ac4e181939",
+			"question": "Co je to optional chaining operator?",
+			"answer": "Logický operátor používaný pro podmíněný přístup k vlastnosti objektu. Pokud objekt vlastnost nemá, nevrátí se nám chyba, když se k ní snažíme přistoupit, přestože neexistuje. Používáme ho když máme více objektů, a některé vlastnosti obsahují a některé ne, nebo se objekt změní. Značí se otazníkem před tečkovou notací: object.subObject?.property"
+		},
+		{
+			"id": "5d65835e-679d-4b05-a384-1be77e944527",
+			"question": "Které tři JS metody se používají na pole tak, aby vytvořily nové pole?",
+			"answer": "map(), filter() a reduce()."
+		},
+		{
+			"id": "2f8d89fc-92ee-4925-8b4e-ef1ee2785568",
+			"question": "Jak se používá metoda map()?",
+			"answer": "const newArray = array.map(item => item * 2)\nconst newArray = array.map(item => item.title)"
+		},
+		{
+			"id": "b36b6d6b-cf91-477b-a2a4-ab037efa3173",
+			"question": "Jakými dvěma způsoby vytvoříme objekt pomocí metody map()?",
+			"answer": "const newArray = array.map(item => { return { title: item.title, author: item.author } })array.map(item => ({ title: item.title, author: item.author }))"
+		},
+		{
+			"id": "1be35d35-e534-4197-998b-70f04acf2878",
+			"question": "Jak funguje metoda filter a jak vypadá?",
+			"answer": "Filtrujeme pole pomocí nějaké podmínky: const newArray = array.filter(item => podmínka)"
+		},
+		{
+			"id": "14cd797a-9f46-4861-960b-a32c08ef1ce4",
+			"question": "Co je to reduce() metoda a jak se používá?",
+			"answer": "Je to nejuniverzálnější metoda, která by mohla nahradit i všechny ostatní. Známá je jednoduchá metoda k akumulaci prvků v poli: array.reduce((acc, item) => acc + item, 0). Tato metoda může být velmi komplexní."
+		},
+		{
+			"id": "7363d29a-f8a2-4c19-99fa-0d3e29080995",
+			"question": "K čemu se používá a jak vypadá sort() metoda?",
+			"answer": "Slouží k řazení původního pole, a vyžaduje 2 argumenty pro porovnávání: const sorted = array.sort((a, b) => a - b) (řazení prvků pole od nejmenšího po největší), const sorted = array.sort((a, b) => b - a) (opačné řazení). Pokud použijeme sort() metodu bez argumentů, řazení je automatické a prvky pole se řadí podle abecedy nebo podle 1.číslice čísel."
+		},
+		{
+			"id": "58f2082e-360c-49a4-a3da-5235eddb04e2",
+			"question": "Co uděláme, pokud chceme seřadit prvky v poli, ale nechceme měnit pořadí v originálním poli?",
+			"answer": "Před metodou sort() použijeme metodu slice(): const sorted = array.slice().sort((a, b) => b - a)"
+		},
+		{
+			"id": "51a5f64b-708c-4b88-9418-13e6e0e7f416",
+			"question": "Jak funguje asynchronní JS a co je to promise?",
+			"answer": "Například při fetchování dat.chvíli trvá, než se data stáhnou, ale JS běží dál řádek po řádku. Nejdřív se spustí stahování, ale kdyby JS okamžitě přeskočil na další řádek a byl tam kód související se staženými daty, ještě by nebylo možné k nim přistupovat. Díky asynchronnímu JS následující řádky čekají, dokud se nedokončí stahování dat, zatímco okamžitě se vrací tzv. promise (příslib), který má různé statusy: pending, rejected,error, fullfilled a který umožní vykonávání nesouvisejícího kódu během stahování. Pro označení kódu, který chceme aby počkal, použijeme .then(callback funkce): fetch(https://...).then(res=>res.json()).then(...).Každé .then() vrací další promise."
+		},
+		{
+			"id": "70144da1-ccfe-4f50-80b2-b3ed925a9306",
+			"question": "Jak a proč používat async/await?",
+			"answer": "Čistší způsob psaní asynchronního kódu bez použití metody .then(). Funkce se označí jako async a uvnitř se kód, na který se má čekat, označí await, což zastaví kód uvnitř funkce, dokud se předcházející operace nedokončí."
 		}
 	]
 }

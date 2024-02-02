@@ -1,0 +1,13 @@
+.list{
+    list-style: none;
+}
+.question{
+    margin-left: 10px;
+    color: var(--title-color);
+    line-height: 30px;
+
+}
+.line{
+    color:var(--text-color);
+    margin-right:30%;
+}

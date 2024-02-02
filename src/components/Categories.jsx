@@ -5,10 +5,18 @@ import NewCategory from "./NewCategory"
 export default function Categories() {
 	return (
 		<>
-		<hr/>
-      <p className={styles.instructions}>Start test, edit or add questions in existing category, or create new category with minimal one question and answer.</p>
+			<hr />
+			<p className={styles.instructions}>
+				Start test, edit or add questions in existing category, or create new
+				category with minimal one question and answer.
+			</p>
 			<div className={styles.box}>
-				<Category />
+				<Category
+					cat={"React"}
+				/>
+				{/* <Category
+					cat={"JavaScript"}
+				/> */}
 				<NewCategory />
 			</div>
 		</>

@@ -5,7 +5,7 @@ export default function Logo() {
 	return (
 		<Link to='/'>
 			<img className={styles.logo}
-				src='src/assets/TestYS.png'
+				src='/src/assets/TestYS.png'
 				alt='testys logo'
 			/>
 		</Link>
