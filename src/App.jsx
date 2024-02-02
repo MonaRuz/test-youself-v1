@@ -15,11 +15,14 @@ const BASE_URL="http://localhost:8000"
 export default function App() {
 
   const[questions,setQuestions]=useState([])
+  const[testQuestions,setTestQuestions]=useState([])
+
 	useEffect(function(){
 		async function getQuestions(){
 			const res=await fetch(`${BASE_URL}/React`)
 			const data=await res.json()
 			setQuestions(data)
+      setTestQuestions(data)
 		}
 		getQuestions()
 	},[])
@@ -31,7 +34,7 @@ export default function App() {
         <Route path="app" element={<AppLayout/>}>
           <Route index element={<Categories/>}/>
           <Route path="categories" element={<Categories/>}/>
-          <Route path="test" element={<Test/>}/>
+          <Route path="test" element={<Test questions={questions} testQuestions={testQuestions} setTestQuestions={setTestQuestions}/>}/>
           <Route path="questions" element={<Questions questions={questions}/>}/>
           <Route path="new-category" element={<CreateNewCategory/>}/>
         </Route>

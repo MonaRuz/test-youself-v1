@@ -4,9 +4,9 @@ import Button from "./Button"
 
 export default function NewCategory() {
 	return (
-		<div className={styles.category}>
+		<div className={styles.newCategory}>
 			<h2 className={styles.title}>Add new category</h2>
-			<h1 className={styles.questionMark}>?</h1>
+			<p className={styles.questionMark}>?</p>
 			<Link to="new" className={styles.plusBtn}>
 				<Button
 					textColor='var(--menu-color)'

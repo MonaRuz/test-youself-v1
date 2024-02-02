@@ -61,7 +61,7 @@
 			"answer": "Pomocí příkazu: npm start"
 		},
 		{
-			"id": "7aaff7d2-0a9e-451d-858b-6b2624226bb7",
+			"id": "732737b9-5990-4ee5-a3dd-5d417258adea",
 			"question": "Co je to v JS destructuring a jak se používá?",
 			"answer": "Pomocí destructuringu jednoduše vytáhneme data z objektu či pole. Z objektů získáme data tečkovou notací, z pole indexem. Pokud chceme získat všechna data z objektu: const {var1,va2,var3} = object, kde musí být pořadí proměnných stejná jako v originálním objektu. V případě pole všechna data vytáhneme: const [var1,var2,var3] = arr."
 		},
@@ -89,11 +89,6 @@
 			"id": "c96dd3ea-49b9-470b-98df-87c2bb88fc77",
 			"question": "Co jsou arrow funkce?",
 			"answer": "Nový způsob psaní funkcí od verze ES6. Pomáhají rychle a jednoduše psát zejména jednořádkové funkce. Normální funkce: function getResult (str) { returnstr.split (“-“) [0] }. Arrow funkce: (str)=>str.split(“-“)[0].Arrow funkce s uložením do proměnné: const result=(str)=>str.split(“-“)[0]."
-		},
-		{
-			"id": "6d7e0079-11c6-4a4b-8ade-17aa97a32f5f",
-			"question": "Proč je lepší argument v šipkové funkci dávat do závorek?",
-			"answer": "Protože nevíme, zda budeme potřebovat časem více argumentů a zjednoduší nám to práci."
 		},
 		{
 			"id": "3b0d744c-b9ba-4da6-bff7-a844d9b52c6a",
@@ -151,7 +146,7 @@
 			"answer": "Vždy tak, abychom neovlivnili originální datovou strukturu. Pro přidání prvku do pole (pokud jde o objekt), vytvoříme nový objekt a pomocí spread operátoru přidáme prvek do pole: const newArray = [...array, newObject]Pro mazání použijeme na pole metodu filter(): const newArray = array.filter(item => item.id !== 3). Update můžeme provést pomocí metod map(): const updatedArray = array.map(item => item.id === 1 ? { ...array, newProperty: value } : item)"
 		},
 		{
-			"id": "",
+			"id": "b435301a-58d7-4f76-bc19-f77fe143a2e7",
 			"question": "Jak funguje asynchronní JS a co je to promise?",
 			"answer": "Například při fetchování dat.chvíli trvá, než se data stáhnou, ale JS běží dál řádek po řádku. Nejdřív se spustí stahování, ale kdyby JS okamžitě přeskočil na další řádek a byl tam kód související se staženými daty, ještě by nebylo možné k nim přistupovat. Díky asynchronnímu JS následující řádky čekají, dokud se nedokončí stahování dat, zatímco okamžitě se vrací tzv. promise (příslib), který má různé statusy: pending, rejected,error, fullfilled a který umožní vykonávání nesouvisejícího kódu během stahování. Pro označení kódu, který chceme aby počkal, použijeme .then(callback funkce): fetch(https://...).then(res=>res.json()).then(...).Každé .then() vrací další promise."
 		},
