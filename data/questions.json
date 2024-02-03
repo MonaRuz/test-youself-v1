@@ -1131,21 +1131,52 @@
 			"answer": "Ideálně v globálním index.css souboru, platném pro celou aplikaci, avšak v určitých případech, jako například když pracujeme s externě určenými styly, se dá uvnitř modulu použít funkce global, která umožní nastavit konkrétní styl jako globální. Jinak v modulu totiž nelze zřetězit dvě třídy, například .nav .active, protože knihovna vždy vezme první slovo, vloží ho do začátku stringu pro výsledný class v html a pak doplní náhodný string. Už nevidí druhou třídu."
 		},
 		{
-			"id":"52b31580-81c5-49cd-beef-99b0e30abf33","question":"Jak se používá funkce global v CSS?","answer":".nav :global(.active){background-color:blue;...}"
+			"id": "52b31580-81c5-49cd-beef-99b0e30abf33",
+			"question": "Jak se používá funkce global v CSS?",
+			"answer": ".nav :global(.active){background-color:blue;...}"
 		},
 		{
-			"id":"45193ace-12a9-42d9-89a2-ec0707485ce7","question":"K čemu slouží nested routes?","answer":"K zobrazení obsahu, tzn. elementů nebo komponent uvnitř větších komponent na základě změny URL. Zpravidla se používá jako vnitřní navigace uvnitř aplikace."	
+			"id": "45193ace-12a9-42d9-89a2-ec0707485ce7",
+			"question": "K čemu slouží nested routes?",
+			"answer": "K zobrazení obsahu, tzn. elementů nebo komponent uvnitř větších komponent na základě změny URL. Zpravidla se používá jako vnitřní navigace uvnitř aplikace."
 		},
 		{
-			"id":"24b22423-5df2-45ba-90be-79a7dc2fb7a4","question":"Jak vytvořit a použít nested routing?","answer":"Jednomu z routů v Routeru dáme uzavírací tag a uvnitř píšeme child routes.Cesty mohou být definovány jednoduše, Router si sám odvodí celou cestu. Obsah, který chceme zobrazit z child routu si necháme zobrazit pomocí komponenty Outlet, kterou umístíme tam, kde chceme obsah zobrazovat."	
+			"id": "24b22423-5df2-45ba-90be-79a7dc2fb7a4",
+			"question": "Jak vytvořit a použít nested routing?",
+			"answer": "Jednomu z routů v Routeru dáme uzavírací tag a uvnitř píšeme child routes.Cesty mohou být definovány jednoduše, Router si sám odvodí celou cestu. Obsah, který chceme zobrazit z child routu si necháme zobrazit pomocí komponenty Outlet, kterou umístíme tam, kde chceme obsah zobrazovat."
 		},
 		{
-			"id":"4d196383-c46c-4de4-a334-c1e96b600ce8","question":"Co je to komponenta Outlet?","answer":"Jedna z komponent poskytovaných React Routerem. Funguje na podobném princi pu, jako {children} u children props, tedy zobrauje child route, který je definován prostřednictvím URL."	
+			"id": "4d196383-c46c-4de4-a334-c1e96b600ce8",
+			"question": "Co je to komponenta Outlet?",
+			"answer": "Jedna z komponent poskytovaných React Routerem. Funguje na podobném princi pu, jako {children} u children props, tedy zobrauje child route, který je definován prostřednictvím URL."
 		},
 		{
-			"id":"169dcd46-fc11-4fbd-9933-8cab021e344a","question":"Co je index route?","answer":"Je to Route nebo child route, který se bude defaultně zobrazovat při načtení stránky."	
+			"id": "169dcd46-fc11-4fbd-9933-8cab021e344a",
+			"question": "Co je index route?",
+			"answer": "Je to Route nebo child route, který se bude defaultně zobrazovat při načtení stránky."
+		},
+		{
+			"id": "9710c402-7be1-4d5b-8378-3b8c8161a139",
+			"question": "Kdy se nám hodí použít uložení state do url?",
+			"answer": "Hlavně v případech, dy se state podílí na vzhledu UI, jako open/closed panels, aktuálně zvolený seznam položek, řazení seznamů, aplikování filterů na seznamy. Je to alternativa k useState, kdy místo vnitřku aplikace ukládáme state v url."
+		},
+		{
+			"id": "65338c93-b924-43fb-a457-54b0dd7c0d52",
+			"question": "Tři případy, kdy je dobré použít uložení state proměnné do url.",
+			"answer": "1) Globální sdílení state, kdy k němu mají přístup všechny komponenty a bez nutnosti provádět prop-drilling. 2) Přenášení dat z jedné stránky do druhé. 3) Chceme mít možnost uložit nebo sdílet stránku s konkrétně nastaveným zobrazením UI. Například v e-shopu, kde máme položky filterované podle barvy a ceny můžeme sdílet s jiným člověkem, kterému se pak zobrazí stejné filterování položek."
+		},
+		{
+			"id": "871bc14f-c211-4d7b-a6a1-e9889447522c",
+			"question": "Jaký je rozdíl mezi params a query string?",
+			"answer": "Params se hodí k posílání dat na další stránku, kdežto query string se hodí k uložení globálních states."
+		},
+		{
+			"id": "4060c8e1-c483-427c-ab6f-2db605c2ead5",
+			"question": "Jaké tři kroky uděláme, abychom použili useParams společně s React Routerem?",
+			"answer": "1) Vytvoříme nový Route, kde path bude obsahovat cestu, ze které máme přejít na další stránku a parametr, který bude obsahovat nějakou proměnnou: <Route path=cities/:id element={<TargetComponent/>}/>. 2)V komponentě, kde chceme mít link na cílovou stránku dáme <Link to={`${id}`}>. 3) Použijeme useParams() k získání proměnné z url. Jelikož params je objekt, můžeme rovnou použít destructuring a proměnnou použít v cílové komponentě: const{id}=useParams()."
 		}
-	],"JavaScript":[
+	],
+	"JavaScript": [
 		{
 			"id": "7aaff7d2-0a9e-451d-858b-6b2624226bb7",
 			"question": "Co je to v JS destructuring a jak se používá?",

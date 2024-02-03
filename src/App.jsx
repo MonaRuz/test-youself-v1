@@ -8,6 +8,7 @@ import PageNotFound from "./components/PageNotFound";
 import Categories from "./components/Categories";
 import Questions from "./components/Questions";
 import CreateNewCategory from "./components/CreateNewCategory";
+import Edit from "./components/Edit"
 
 const BASE_URL="http://localhost:8000"
 
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="categories" element={<Categories/>}/>
           <Route path="test" element={<Test questions={questions} testQuestions={testQuestions} setTestQuestions={setTestQuestions}/>}/>
           <Route path="questions" element={<Questions questions={questions}/>}/>
+          <Route path="questions/:id" element={<Edit questions={questions}/>}/>
           <Route path="new-category" element={<CreateNewCategory/>}/>
         </Route>
         <Route path="*" element={<PageNotFound/>}/>
