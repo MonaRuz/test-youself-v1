@@ -424,7 +424,9 @@
 			"id": "40bc9a6b-ae23-4391-8940-7d15c29bbf5b",
 			"question": "Co je to children props?",
 			"answer": "Je to posílání samotného JSX jako props. Rodičovské komponentě rozdělíme otevírací a uzavírací tag a mezi ně vložíme obsah, který chceme poslat. V dceřinné komponentě přijmeme a použijeme tuto propsu jako children. Hodí se u vytváření generických komponent, kdy předem nevíme, jaký obsah v nich bude."
-		},
+		}
+	],
+	"React-2": [
 		{
 			"id": "d84c38f5-08b0-47e4-9a15-b96f00336d5e",
 			"question": "Jak by mělo probíhat ideálně rozdělování UI na komponenty?",
@@ -483,7 +485,7 @@
 		{
 			"id": "e41e7695-0c24-40d2-890f-85f2f5f778c3",
 			"question": "Co jsou proptypes?",
-			"answer": "Jde o type checking (v případě kdy konzument nebude používat TypeScript) pro znovupoužitelné komponenty. Vytváří se nad rodičovskou komponentou takto : NameOfComponent.propTypes={concreteProp: PropTypes.number,…}\nKromě number jsou tu ještě hodnoty: string, array, object, func, bool\nMůžeme přidat i .isRequired pro označení povinnosti konkrétní propsu poslat."
+			"answer": "Jde o type checking (v případě kdy konzument nebude používat TypeScript) pro znovupoužitelné komponenty. Vytváří se nad rodičovskou komponentou takto : NameOfComponent.propTypes={concreteProp: PropTypes.number,…}. Kromě number jsou tu ještě hodnoty: string, array, object, func, bool. Můžeme přidat i .isRequired pro označení povinnosti konkrétní propsu poslat."
 		},
 		{
 			"id": "6e3d27b7-7965-4ff3-926b-835d9783727e",
@@ -939,7 +941,8 @@
 			"id": "c9f16939-5704-4a3b-9487-5fbf04e8a6b7",
 			"question": "Jak použijeme custom hook v event handleru?",
 			"answer": "Z custom hooku si necháme místo dat vrátit funkci a tu použít do event handleru. Do event handler funkce nelze dávat customHooky."
-		},
+		}
+		 ],"React-3":[ 
 		{
 			"id": "e9d81fbf-0d5a-4e52-8a23-99f960e02d21",
 			"question": "Co je to useReducer hook?",
@@ -1174,6 +1177,76 @@
 			"id": "4060c8e1-c483-427c-ab6f-2db605c2ead5",
 			"question": "Jaké tři kroky uděláme, abychom použili useParams společně s React Routerem?",
 			"answer": "1) Vytvoříme nový Route, kde path bude obsahovat cestu, ze které máme přejít na další stránku a parametr, který bude obsahovat nějakou proměnnou: <Route path=cities/:id element={<TargetComponent/>}/>. 2)V komponentě, kde chceme mít link na cílovou stránku dáme <Link to={`${id}`}>. 3) Použijeme useParams() k získání proměnné z url. Jelikož params je objekt, můžeme rovnou použít destructuring a proměnnou použít v cílové komponentě: const{id}=useParams()."
+		},
+		{
+			"id": "2c7c7421-8fb2-4c78-8da7-ed1f5a1fefd1",
+			"question": "Jak dáme query string do url?",
+			"answer": "V parametru to v komponentě Link dáme ?název-proměnné=hodnota a pokud tam máme hodnot více, spojujeme je prostřednictvím &.: <Link to={`${param}?lat={lat}&lng={lng}`}>"
+		},
+		{
+			"id": "adaf61ce-fe11-48a6-9ae4-1c7565ea15c6",
+			"question": "Jak vytáhneme hodnotu z query string, abychom jí mohli použít v komponentě?",
+			"answer": "Použijeme useSearchParams hook, který poskytuje React Router a který je velmi podobní hooku useState. Vrací pole obsahující aktuální hodnotu, obvykle označenou jako searchParams a setter funkci obvykle označenou jako setSearchParams.: const[searchParams,setSearchParams]=useSearchParams(). K hodnodě v searchParams nelze přistupovat přímo, ale musíme jí získat pomocí metody .get(): const value=searchParams.get(value)."
+		},
+		{
+			"id": "977d7c5e-d583-4606-9538-3d70bd537023",
+			"question": "Jak použijeme setSearchParams?",
+			"answer": "Ve funkci vložíme nový, aktuální objekt, který je pak změněn všeude, kde je hodnota použita."
+		},
+		{
+			"id": "9975b750-1f60-4430-88b2-2a40e2f062c2",
+			"question": "Jaké největší výhody má uložení state do url přes query string?",
+			"answer": "1) Můžeme zdílet url, která se pak zobrazí někomu jinému úplně stejně jako v tu chvíli nám, když jsme link sdíleli. 2) State je přístupný všem komponentám v aplikaci, aniž bychom museli vytvářet nový piece of state a posílat jí do dalších komponent."
+		},
+		{
+			"id": "b8ecdf29-af13-452a-8233-30a508b809a4",
+			"question": "Co je to programmatic navigation?",
+			"answer": "Navigace uživatele na jinou stránku, aniž by uživatel musel klikat na link. Hodí se tam, kde nemůžeme použít klasickou Link komponentu, například navigovat jinam uživatele okamžitě po odeslání formuláře, po kliknutí na nějakou komponentu či element, nebo pro tlačítko, které má uživatele přesměrovat, například tlačítko zpět."
+		},
+		{
+			"id": "81243729-993d-466e-8b97-8f392d894cb8",
+			"question": "Jaký hook používáme při programmatic navigate?",
+			"answer": "Použijeme useNavigate, což je hook poskytovaný React Router knihovnout."
+		},
+		{
+			"id": "98a73662-60f5-48f2-bb4a-c3d5bb3c160a",
+			"question": "Jak vypadá a jak se používá useNavigate hook?",
+			"answer": "Tento hook vrací funkci, kterou potom použijeme v nějaké event handler funkci: const navigate=useNavigate(). V event handleru použijeme takto: <button onClick={()=>navigate(cesta)}>...</button>."
+		},
+		{
+			"id": "975d52df-08ac-44cf-930c-779ac1a9bd27",
+			"question": "Jak se dříve nazýval hook useNavigate a proč?",
+			"answer": "Jmenoval se useHistory, protože se dal velmi jednoduše požívat pro tlačítka zpět na stránkách, kam do argumentu funkce navigate() lze vložit číslo jako počet kroků zpět nebo vpřed: navigate(-1)"
+		},
+		{
+			"id": "9b5f988f-9900-4bb9-9ec7-10c62dd91fff",
+			"question": "Který způsob navigace na jinou stránku je v Reactu imperativní a který deklarativní?",
+			"answer": "Deklarativní je použití komponenty <Link/> a <Navigate/> a imperativní je použití hooku useNavigate."
+		},
+		{
+			"id": "33f5ef5d-8c03-4f7b-8959-06b9c7814860",
+			"question": "Co uděláme, když používáme CSS moduly a chceme mít v elementu dvě a více tříd?",
+			"answer": "Použijeme templeteliterals: <button className={`${styles.btn} ${styles.primary}`}>...</button>."
+		},
+		{
+			"id": "91b50d9d-0969-4db9-8153-4b79f6b544d2",
+			"question": "Jak umožníme v reusable komponentě vybrat určitý typ vzhledu komponenty při použití CSS modulů?",
+			"answer": "K reusable komponentě připojíme CSS modul s předdefinovanými typy - CSS třídami a konzumentovi umožníme v props poslat type: <Button type='primary'>...</Button>."
+		},
+		{
+			"id": "ed301dbe-61cb-4fdd-a597-15495f5c6d27",
+			"question": "K čemu slouží komponenta <Navigate/>?",
+			"answer": "Je to komponenta poskytovaná React Routerem k programmatic navigation, ale více deklarativním způsobem. Hojně se využívala před vznikem hooků v Reactu. Dnes se již místo ní většinou používá useNavigation hook, ale stále se používá zejména k navigaci v nested routes."
+		},
+		{
+			"id": "a10bf564-d6ad-42c0-b3ee-93cffaa6df55",
+			"question": "Proč a jak se používá <Navigate/> komponenta v nested routes?",
+			"answer": "V nested routu, který má index, aby se cesta zobrazila v url: <Route index element={<Navigate replace to='target-path'/>}/>."
+		},
+		{
+			"id": "a5e5f9df-8dfe-4953-92a7-944c60dfdc2e",
+			"question": "Proč a kam se do <Navigate/> komponenty umísťuje 'replace'?",
+			"answer": "Aby na stránce fungovalo v browseru tlačítko zpět: <Navigate replace to='target-path'/>."
 		}
 	],
 	"JavaScript": [
