@@ -3,10 +3,9 @@ import Category from "./Category"
 import NewCategory from "./NewCategory"
 import Error from "./Error"
 
-export default function Categories({error}) {
+export default function Categories({error,questions}) {
 
 	if(error)return <Error>{error}</Error>
-
 	return (
 		<>
 			<hr />
@@ -17,6 +16,7 @@ export default function Categories({error}) {
 			<div className={styles.box}>
 				<Category
 					cat={"React"}
+					questions={questions}
 				/>
 				{/* <Category
 					cat={"JavaScript"}

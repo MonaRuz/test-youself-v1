@@ -2,13 +2,13 @@ import { useNavigate } from "react-router-dom"
 import styles from "./Category.module.css"
 import Button from "./Button"
 
-export default function Category() {
+export default function Category({questions}) {
 	const navigate=useNavigate()
 	return (
 		<div className={styles.category}>
 			<h2 className={styles.title}>React</h2>
 			<p>
-				<span className={styles.values}>X</span> questions
+				<span className={styles.values}>{questions.length}</span> questions
 			</p>
 			<p>
 				Progress: <span className={styles.values}>X / X</span>

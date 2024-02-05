@@ -52,11 +52,11 @@ export default function App() {
 				>
 					<Route
 						index
-						element={<Categories error={error} />}
+						element={<Categories error={error} questions={questions} />}
 					/>
 					<Route
 						path='categories'
-						element={<Categories error={error} />}
+						element={<Categories error={error} questions={questions} />}
 					/>
 					<Route
 						path='test'
