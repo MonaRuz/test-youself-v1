@@ -1,8 +1,15 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 
-
-export default function Button ({textColor="black", bgColor="white", onClick, children, borderWidth=1,borderRad=0,childrenSize=18,className}) {
-    const buttonStyle = {
+export default function Button({
+	textColor = "black",
+	bgColor = "white",
+	onClick,
+	children,
+	borderWidth = 1,
+	borderRad = 0,
+	childrenSize = 18,
+}) {
+	const buttonStyle = {
 		padding: "10px",
 		margin: "10px",
 		fontSize: `${childrenSize}px`,
@@ -11,7 +18,7 @@ export default function Button ({textColor="black", bgColor="white", onClick, ch
 		color: textColor,
 		backgroundColor: bgColor,
 		border: `${borderWidth}px solid ${textColor}`,
-        borderRadius:`${borderRad}px`
+		borderRadius: `${borderRad}px`,
 	}
 
 	const invertedStyle = {
@@ -19,19 +26,19 @@ export default function Button ({textColor="black", bgColor="white", onClick, ch
 		backgroundColor: textColor,
 		border: `${borderWidth}px solid ${bgColor}`,
 	}
-    
+
 	return (
-        <button
-        style={buttonStyle}
-        onMouseEnter={(e) => {
-            e.currentTarget.style.color = invertedStyle.color
-            e.currentTarget.style.backgroundColor = invertedStyle.backgroundColor
-        }}
-        onMouseLeave={(e) => {
-            e.currentTarget.style.color = buttonStyle.color
-            e.currentTarget.style.backgroundColor = buttonStyle.backgroundColor
-        }}
-        onClick={onClick}
+		<button
+			style={buttonStyle}
+			onMouseEnter={(e) => {
+				e.currentTarget.style.color = invertedStyle.color
+				e.currentTarget.style.backgroundColor = invertedStyle.backgroundColor
+			}}
+			onMouseLeave={(e) => {
+				e.currentTarget.style.color = buttonStyle.color
+				e.currentTarget.style.backgroundColor = buttonStyle.backgroundColor
+			}}
+			onClick={onClick}
 		>
 			{children}
 		</button>
@@ -39,11 +46,11 @@ export default function Button ({textColor="black", bgColor="white", onClick, ch
 }
 
 Button.propTypes = {
-    textColor:PropTypes.string,
-    bgColor:PropTypes.string,
-    borderWidth:PropTypes.number,
-    borderRad:PropTypes.number,
-    childrenSize:PropTypes.number,
-    onClick:PropTypes.func,
-    className:PropTypes.string
+	textColor: PropTypes.string,
+	bgColor: PropTypes.string,
+	borderWidth: PropTypes.number,
+	borderRad: PropTypes.number,
+	childrenSize: PropTypes.number,
+	onClick: PropTypes.func,
+	className: PropTypes.string,
 }

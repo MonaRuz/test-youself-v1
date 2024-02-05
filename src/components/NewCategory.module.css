@@ -1,7 +1,6 @@
 .newCategory{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     color: var(--text-color);
     margin:0 10px;
     padding:0 25px;
@@ -10,15 +9,8 @@
     height:350px;
 }
 .title{
-    color: var(--title-color)
+    color: var(--title-color);
+    padding-bottom: 140px;
 }
-.plusBtn{
-    margin-bottom: 30px;
-    text-align: center;
-}
-.questionMark{
-    margin: 0;
-    text-align: center;
-    font-size: 60px;
-    color:var(--negation-color)
-}
+
+

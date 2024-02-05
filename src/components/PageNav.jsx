@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import Logo from "./Logo"
 import styles from "./PageNav.module.css"
 import Button from "./Button"
 
 export default function PageNav() {
+	const navigate=useNavigate()
 	return (
 		<nav>
 			<ul className={styles.nav}>
@@ -12,14 +13,13 @@ export default function PageNav() {
 				</li>
 				
 				<li>
-					<NavLink to='login'>
 						<Button
 							textColor='var(--menu-color)'
 							bgColor='var(--main-bg-color)'
+							onClick={()=>navigate("login")}
 						>
 							Login
 						</Button>
-					</NavLink>
 				</li>
 			</ul>
 		</nav>

@@ -45,6 +45,7 @@ export default function Test({questions,testQuestions,setTestQuestions}) {
   if (testQuestions.length !== 0 )
 		return (
 			<div className={styles.test}>
+				
 				<div className='test-question'>
           {currentQuestion &&<p className={styles.question}>{currentQuestion?.question}</p>}
 					
@@ -83,6 +84,7 @@ export default function Test({questions,testQuestions,setTestQuestions}) {
 				<div>
 					<p className={styles.progress}>Progress:<strong> {progress} / {questions.length}</strong> </p>
 				</div>
+				<p className={styles.instructions}>Answer the question as best you can, view the answer and see if you answered correctly. <br/> Then click on the corresponding button.</p>
 			</div>
 		)
 	if (testQuestions.length === 0)

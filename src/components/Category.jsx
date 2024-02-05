@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import styles from "./Category.module.css"
 import Button from "./Button"
 
 export default function Category() {
+	const navigate=useNavigate()
 	return (
 		<div className={styles.category}>
 			<h2 className={styles.title}>React</h2>
@@ -19,24 +20,21 @@ export default function Category() {
 				Highscore: <span className={styles.values}>X</span> %
 			</p>
 			<div className={styles.buttons}>
-				<Link to='test' >
 					
 					<Button
 						textColor='var(--menu-color)'
 						bgColor='var(--main-bg-color)'
-					>
-						Test
+						onClick={()=>navigate("test")}
+						>Test
 					</Button>
-				</Link>
 
-				<Link to='questions'>
 					<Button
 						textColor='var(--menu-color)'
 						bgColor='var(--main-bg-color)'
+						onClick={()=>navigate("questions")}
 					>
 						Edit
 					</Button>
-				</Link>
 			</div>
 		</div>
 	)
