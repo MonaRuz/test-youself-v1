@@ -2,13 +2,12 @@
 	margin-left: 10px;
 
 	line-height: 30px;
+    color: var(--text-color);
 }
 .line {
 	color: var(--text-color);
 }
-.question {
-	color: var(--text-color);
-}
+
 .questionBox {
 	cursor: pointer;
 	display: flex;
@@ -30,7 +29,7 @@
 }
 .btnBox{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     margin: 10px 0;
 }
 .answer{
