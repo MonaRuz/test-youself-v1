@@ -1,21 +1,47 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import styles from "./Question.module.css"
 import Button from "./Button"
+import { IoIosArrowDown,IoIosArrowUp } from "react-icons/io";
+
 export default function Question({ id, question, answer }) {
-	const [showDetails, setShowdetails] = useState(false)
+	const [isActive, setIsActive] = useState(false)
+	console.log(id)
 	return (
-		<div key={id}>
+		<div>
 			<li className={question}>
-				<div className={styles.questionBox}>
-					<p
-						className={styles.p}
-						
-					>
-						{question}
-					</p>
-                    <Button bgColor="var(--main-bg-color)" textColor="var(--title-color)" childrenSize={15} onClick={() => setShowdetails(true)}>Details</Button>
+				<div
+					className={styles.questionBox}
+					onClick={() => setIsActive(!isActive)}
+				>
+					<p className={styles.question}>{question}</p>
+					<p className={styles.btn}>{isActive ? <IoIosArrowUp/> : <IoIosArrowDown/>}</p>
 				</div>
-				{showDetails && <p className={styles.p}>{answer}</p>}
+				{isActive && (
+					<div>
+						<p className={styles.answer}>{answer}</p>
+						<div className={styles.btnBox}>
+							<Link
+								className={styles.link}
+								to={`${id}`}
+							>
+								<Button
+									bgColor='var(--main-bg-color)'
+									textColor='var(--positive-color)'
+								>
+									Edit question
+								</Button>
+							</Link>
+
+							<Button
+								bgColor='var(--main-bg-color)'
+								textColor='var(--negation-color)'
+							>
+								Delete question
+							</Button>
+						</div>
+					</div>
+				)}
 			</li>
 			<hr className={styles.line} />
 		</div>

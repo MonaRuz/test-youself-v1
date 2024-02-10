@@ -1,17 +1,39 @@
-.question{
-    margin-left: 10px;
-    
-    line-height: 30px;
+.question {
+	margin-left: 10px;
+
+	line-height: 30px;
 }
-.line{
-    color:var(--text-color);
+.line {
+	color: var(--text-color);
 }
-.p{
-    
-    color: var(--text-color);
+.question {
+	color: var(--text-color);
 }
-.questionBox{
+.questionBox {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.question:hover{
+    color: var(--positive-color);
+}
+.btn {
+	color: var(--menu-color);
+	font-size: 22px;
+    width: 22px;
+    height: 22px;
+    padding: 1px 1px 1px 1px;
+}
+.btn:hover{
+    color:var(--positive-color);
+}
+.btnBox{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.answer{
+    color: var(--menu-color);
+    margin: 0 10px;
 }

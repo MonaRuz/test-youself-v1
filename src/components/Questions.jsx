@@ -19,7 +19,7 @@ export default function Questions({ questions }) {
 			<SearchQuestion searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 			<ul className={styles.list}>
 				{searchedQuestions.map((question) => (
-					<Question id={question.id} question={question.question} answer={question.answer}/>
+					<Question key={question.id} question={question.question} answer={question.answer} id={question.id}/>
 				))}
 			</ul>
 		</div>
