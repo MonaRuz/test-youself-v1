@@ -2,13 +2,14 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import styles from "./Questions.module.css"
 import SearchQuestion from "./SearchQuestion"
+import Question from "./Question"
 
 export default function Questions({ questions }) {
 	const [searchQuery, setSearchQuery] = useState("")
 	const searchedQuestions =
 		searchQuery.length > 0
 			? questions.filter((question) =>
-					`${question.question} ${question.answer}`
+					`${question.question}`
 						.toLowerCase()
 						.includes(searchQuery.toLowerCase()))
 			: questions
@@ -18,17 +19,7 @@ export default function Questions({ questions }) {
 			<SearchQuestion searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 			<ul className={styles.list}>
 				{searchedQuestions.map((question) => (
-					<div key={question.id}>
-						<li className={styles.question}>
-							<Link
-								className={styles.link}
-								to={question.id}
-							>
-								{question.question}
-							</Link>
-						</li>
-						<hr className={styles.line} />
-					</div>
+					<Question id={question.id} question={question.question} answer={question.answer}/>
 				))}
 			</ul>
 		</div>

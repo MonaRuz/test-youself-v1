@@ -1,0 +1,17 @@
+.question{
+    margin-left: 10px;
+    
+    line-height: 30px;
+}
+.line{
+    color:var(--text-color);
+}
+.p{
+    
+    color: var(--text-color);
+}
+.questionBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

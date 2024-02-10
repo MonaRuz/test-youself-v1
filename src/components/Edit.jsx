@@ -1,8 +1,10 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import styles from "./Edit.module.css"
+import Button from "./Button"
 
 export default function Edit({ questions }) {
 	const { id } = useParams()
+	const navigate=useNavigate()
 
 	const selectedQuestion = questions
 		.filter((question) => {
@@ -15,6 +17,7 @@ const[{question,answer}]=selectedQuestion
 			<p className={styles.question}>{question}</p>
             <hr className={styles.line}/>
             <p className={styles.answer}>{answer}</p>
+			<Button bgColor="var(--main-bg-color)" textColor="var(--menu-color) " onClick={()=>navigate(-1)}>Back</Button>
 		</div>
 	)
 }
