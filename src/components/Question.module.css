@@ -15,6 +15,7 @@
 	justify-content: space-between;
 }
 .question:hover{
+    border-bottom:1px solid var(--positive-color);
     color: var(--positive-color);
 }
 .btn {
@@ -35,4 +36,9 @@
 .answer{
     color: var(--menu-color);
     margin: 0 10px;
+}
+.currentQuestion{
+    border-bottom:1px solid var(--positive-color);
+    color: var(--positive-color);
+    margin-left: 30px;
 }

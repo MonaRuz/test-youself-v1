@@ -17,7 +17,7 @@ export default function Question({
 					className={styles.questionBox}
 					onClick={() => onToggleOpen()}
 				>
-					<p className={styles.question}>{question}</p>
+					<p className={!isOpen?`${styles.question}`:`${styles.currentQuestion}`}>{question}</p>
 					<p className={styles.btn}>
 						{isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
 					</p>
