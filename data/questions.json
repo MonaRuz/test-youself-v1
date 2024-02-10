@@ -942,7 +942,8 @@
 			"question": "Jak použijeme custom hook v event handleru?",
 			"answer": "Z custom hooku si necháme místo dat vrátit funkci a tu použít do event handleru. Do event handler funkce nelze dávat customHooky."
 		}
-		 ],"React-3":[ 
+	],
+	"React-3": [
 		{
 			"id": "e9d81fbf-0d5a-4e52-8a23-99f960e02d21",
 			"question": "Co je to useReducer hook?",
@@ -1247,6 +1248,131 @@
 			"id": "a5e5f9df-8dfe-4953-92a7-944c60dfdc2e",
 			"question": "Proč a kam se do <Navigate/> komponenty umísťuje 'replace'?",
 			"answer": "Aby na stránce fungovalo v browseru tlačítko zpět: <Navigate replace to='target-path'/>."
+		},
+		{
+			"id": "4355e835-a797-4a52-90f8-10b5b0fc01f4",
+			"question": "Který problém řeší context API?",
+			"answer": "Když je potřeba posílat state nebo funkci přes mnoho hluboko zahnízděných komponent."
+		},
+		{
+			"id": "9b1fd768-c766-4f75-a949-9ca295b6fcf8",
+			"question": "Jaké máme možnosti, když chceme poslat data do hluboko zahnízděných komponent?",
+			"answer": "1) Použijeme prop-drilling, což je ale těžkopádné a nepohodlné, 2) Upravíme kompozici komponent, což ale ne vždy jde a ne vždy to řeší problém, 3) Použijeme context API."
+		},
+		{
+			"id": "b1dc55e6-09ab-4b93-8c41-d729fbc7f0bb",
+			"question": "Co je to context API?",
+			"answer": "Systém, který umožňuje posílat data kamkoliv dolů v component tree. Umožňuje přenášet global state napříč celou aplikací."
+		},
+		{
+			"id": "5cc0ed77-f000-4f6b-95fd-0f93ea4a967a",
+			"question": "Jaké 3 části má systém context API?",
+			"answer": "1) Provider, 2) Value, 3) Consumer"
+		},
+		{
+			"id": "ee4daad3-d551-4cc3-9d14-e6bd40dfd624",
+			"question": "Co je to Provider?",
+			"answer": "Speciální React komponenta, která dává všem child komponentám přístup k hodnotě, kterou sdílí. V component tree může být kdekoliv, ale obvykle je co nejvýše."
+		},
+		{
+			"id": "57f7fbc2-a830-4538-a4da-89d286373496",
+			"question": "Co je to value v rámci context API?",
+			"answer": "Data, která chceme mít přístupná v child komponentách a která vkládáme do Provideru."
+		},
+		{
+			"id": "58ca434d-435f-423e-a88e-83d57a3c2a7d",
+			"question": "Co jsou to Consumers?",
+			"answer": "Komponenty, které odebírají hodnotu sdílenou Providerem."
+		},
+		{
+			"id": "ff040731-ae6c-43ed-85a9-8e33243b28ba",
+			"question": "Co se stane, když se změní hodnota v Provideru?",
+			"answer": "Provider dá vědět všem Consumer komponentám, které odebírají hodnotu o změně a tyto komponenty pak re-renderují. Je to tedy jedna z příčin re-renderu komponenty. "
+		},
+		{
+			"id": "9546b113-d35b-4a6b-94fc-c93a7fa0af40",
+			"question": "Jak vytvoříme nový kontext?",
+			"answer": "Zavoláme funkci createProvider, který je součástí React knihovny a do jeho argumentu můžeme vložit defaultní hodnotu. To ale moc často neděláme, protože nechceme, aby poskytovaná hodnota byla neměnná. Funkce vrací proměnnou, obvykle označenou podle dat, která má Provider poskytovat a začínající na velké písmeno, jelikož jde o komponentu: const DataContext=createContext(). "
+		},
+		{
+			"id": "d4e73322-69a6-4013-bf18-5a85e9d51167",
+			"question": "Jak vložíme Provider komponentu do JSX a jak do ní vložíme data?",
+			"answer": "Provider komponentou obalíme celou rodičovskou komponentu a do její prop jako objekt vložíme vše, co chceme sdílet s child komponentami: <DataContext.Provider value={{data:searchData,onAddData:handleAddData,setData}}>...</DataContext.Provider>."
+		},
+		{
+			"id": "3513c4cc-0732-4abe-9954-b71fb73bccd2",
+			"question": "Kolik Providerů bychom měli vytvořit v aplikaci?",
+			"answer": "Obvykle vytváříme jeden kontext na jednu state oblast."
+		},
+		{
+			"id": "a57d82f4-cf1d-486c-b1c4-024215be82de",
+			"question": "Jak vypadá consuming kontextu přu užití context API?",
+			"answer": "V consumer komponentě vytvoříme useContext hook, do kterého dáme název kontextuální komponenty a který nám vrátí defaultně celou hodnotu, kterou jsme vložili do Provideru: const x= useContext(DataContext). Obvykle ale rovnou provádíme destructuring a uložíme si pouze hodnotu, kterou komponenta potřebuje: const {data} = useContext(DataContext). Pak už stačí hodnotu použít v kódu."
+		},
+		{
+			"id": "40766110-8580-4b85-8104-4caf3e6300bb",
+			"question": "Jaké hlavní výhody přináší použití Context API oproti prop-drilling?",
+			"answer": "Komponenty jsou čistší a více reusable. Komponentu,která přijímá data  z context API můžeme použít kdekoliv v aplikaci znovu, aniž bychom museli komponentě něco posílat."
+		},
+		{
+			"id": "05b34c26-2ae5-41e5-8224-3696d8c1dc71",
+			"question": "K čemu je dobré vytvořit si vlastní customProvider?",
+			"answer": "Odstraníme tak z komponent všechnu state logiku, která souvisí s kontextem. Kód je pak o mnoho čistší"
+		},
+		{
+			"id": "3758aa62-ef47-48af-9fbb-c13153346486",
+			"question": "Jak vytvoříme customProvider komponentu?",
+			"answer": "Vytvoříme samostatný soubor s odpovídajícím názvem, jako třeba DataProvider. Uvnitř vytvoříme kontext: DataContext=createContext(). Do komponenty se stejným názvem jako soubor dáme veškerou logiku souvisejíví s kontextem a vše potřebné importujeme. Do return části komponenty dáme Provider komponentu s hodnotou, která má být v kontextu přístupná a mezi otevírací a zavírací tagy dáme children prop. Pomocí named exportu pak exportujeme jak DataProvider komponentu, tak DataContext, které importujeme, kde je třeba: const DataContext=createContext(); return <DataContext.Provider value={{data:data,setData,...}}>{children}</DataContext.Provider>; export {DataProvider,DataContext}."
+		},
+		{
+			"id": "48ef3d4b-de3e-471d-bda7-53f9917fc48a",
+			"question": "Jak se vytváří custom hook k Provideru?",
+			"answer": "Ve stejném souboru, kde máme custom Provider vytvoříme další funkci, která bude vracet kontext, takže pak v consumer komponentách nemusíme psát useContext(DataProvider), ale stačí k zadané hodnotě zavolat custom hook: function useData(){const context=useContext(DataContext);return context}"
+		},
+		{
+			"id": "62e3ee3d-4ac4-4fb6-9525-4e4adaa3e1e8",
+			"question": "Jak zajistit, aby custom hook k Provideru nebyl používán mimo oblast Provideru a tudíž neměl přístup ke kontextu?",
+			"answer": "Do custum hooku přidáme podmínku, že pokud je náš kontext undefined, vypíše se nám do konzole chybová hláška, že DataContext byl použit mimo DataProvider. Hodí se to zejména ve větších aplikacích: function useData(){const context=useContext(DataContext);if(context===undefined)throw new Error('Error message...');return context}"
+		},
+		{
+			"id": "cc3c011e-a90d-49e3-8a72-a4c0374ea99e",
+			"question": "Jaké dvě typologie mám state?",
+			"answer": "1)Typy podle přístupnosti state(state accessibility), 2)typy podle oblasti umístění state(state domain)"
+		},
+		{
+			"id": "679d6067-c1a7-47c4-8906-0526052ee4ee",
+			"question": "Jaké máme typy state podle přístupnosti(accessibility)?",
+			"answer": "1) Local state, který je používán v jedné nebo několika málo komponentách a je přístupný pouze v konkrétní komponentě a jejích child komponentách. 2)Global state, který je používán v mnoha komponentách a je přístupný pro všechny komponenty v aplikaci."
+		},
+		{
+			"id": "1e39ff4d-b20e-4121-98f8-08fc32761b0d",
+			"question": "Jaké máme typy state podle oblasti(domain)?",
+			"answer": "1) Remote state, který představuje všechna data, která se stahují ze serveru (API), je často refetchován a updatován používají se pro něj specializované nástroje. 2) UI state, který je s aplikací synchronní a je uložen přímo v aplikaci a je jednoduše ovladatelný pomocí běžných React hooků."
+		},
+		{
+			"id": "56640721-bce8-4d2b-927a-a67073da3c0c",
+			"question": "Kde všude lze umístit state a čím jsou tato umístění charakteritická?",
+			"answer": "1) Local component, jako nástroj k managování state se používá useState, useReducer a useRef a je to local state. 2) Parent component, jako nástroj k managován state se používá useState, useReducer a useRef a typicky jde o lifting up state. 3) Context, jako nástroj se používá context API + useState/useReducer, state je globální a typicky pro UI state. 4) 3rd-party library, jako nástroj k managování state se používají Redux, React Query, SWR nebo Zustand a state je globální, jak typu remote, tak UI. 5) URL, jako nástroj k managování state se používá React Router a state je globální, kde se posílá mezi stránkami. 6) Browser, jako nástroj k managováni state se používají local storage nebo session storage a slouží k ukládání dat popuze pro prohlížeč uživatele."
+		},
+		{
+			"id": "296ce97e-dbeb-429d-af4b-36b0520f2bb6",
+			"question": "Které nástroje využijeme, pokud chceme mít state přístupný lokálně a zároveň jde o UI state?",
+			"answer": "useState, useReducer, useRef"
+		},
+		{
+			"id": "b57ba3f6-d917-4203-aad8-9a900a2cf263",
+			"question": "Které nástroje využijeme, pokud chceme mít state přístupný lokálně a zároveň jde o remote state?",
+			"answer": "fetch + useEffect + useState / useReducer, hodí se pro menší aplikace"
+		},
+		{
+			"id": "8da2a690-0d06-401e-b3a1-9fc0af6f45e5",
+			"question": "Které nástroje využijeme, pokud chceme mít state přístupný globálně a zároveň jde o remote state?",
+			"answer": "context API + useState/ useReducer, Redux, Zustand, Recoil, nebo specializované nástroje jako React Query, SWR nebo RTK Query"
+		},
+		{
+			"id": "ddeb99d1-a702-425f-bea4-9305fc5d2747",
+			"question": "Které nástroje využijeme, pokud chceme mít state přístupný globálně a zároveň jde o UI state?",
+			"answer": "Context API + useState / useReducer, Redux, Zustand, Recoil nebo React Router."
 		}
 	],
 	"JavaScript": [
