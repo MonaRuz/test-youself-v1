@@ -2,26 +2,28 @@ import { useEffect, useState } from "react"
 import Button from "./Button"
 import styles from "./Test.module.css"
 
-export default function Test({questions,testQuestions,setTestQuestions}) {
-  
-  const [showAnswer, setShowAnswer] = useState(false)
-  const [percentCouter, setpercentCouter] = useState(0)
-	const [progress,setProgress]=useState(1)
-  const [currentQuestion, setCurrentQuestion] = useState(null)
-   
-  const result = Math.ceil(100 - (percentCouter / (questions.length + percentCouter)) * 100)
+export default function Test({ questions, testQuestions, setTestQuestions }) {
+	const [showAnswer, setShowAnswer] = useState(false)
+	const [percentCouter, setpercentCouter] = useState(0)
+	const [progress, setProgress] = useState(1)
+	const [currentQuestion, setCurrentQuestion] = useState(null)
 
+	const result = Math.ceil(
+		100 - (percentCouter / (questions.length + percentCouter)) * 100
+	)
 
-  function getRandomQuestion(min, max) {
+	function getRandomQuestion(min, max) {
 		min = Math.ceil(min)
 		max = Math.floor(max)
 		return Math.floor(Math.random() * (max - min) + min)
 	}
 
-  function handleWrongAnswer() {
-		setCurrentQuestion(testQuestions[getRandomQuestion(0, testQuestions.length)])
+	function handleWrongAnswer() {
+		setCurrentQuestion(
+			testQuestions[getRandomQuestion(0, testQuestions.length)]
+		)
 		setShowAnswer(false)
-		setpercentCouter(percentCouter+1)
+		setpercentCouter(percentCouter + 1)
 	}
 
 	function handleCorrectAnswer(id) {
@@ -29,65 +31,80 @@ export default function Test({questions,testQuestions,setTestQuestions}) {
 			return question.id !== id
 		})
 		setTestQuestions(updatedQuestions)
-		
+
 		setShowAnswer(false)
 		setCurrentQuestion(
 			updatedQuestions[getRandomQuestion(0, updatedQuestions.length)]
 		)
-		setProgress(progress+1)
+		setProgress(progress + 1)
 	}
 
-  useEffect(function(){
-    setCurrentQuestion(testQuestions[getRandomQuestion(0, testQuestions.length)])
-  },[testQuestions])
+	useEffect(
+		function () {
+			setCurrentQuestion(
+				testQuestions[getRandomQuestion(0, testQuestions.length)]
+			)
+		},
+		[testQuestions]
+	)
 
-
-  if (testQuestions.length !== 0 )
+	if (testQuestions.length !== 0)
 		return (
 			<div className={styles.test}>
-				
 				<div className='test-question'>
-          {currentQuestion &&<p className={styles.question}>{currentQuestion?.question}</p>}
-					
-					{showAnswer && <p className={styles.answer}>{currentQuestion?.answer}</p>}
+					{currentQuestion && (
+						<p className={styles.question}>{currentQuestion?.question}</p>
+					)}
+
+					{showAnswer && (
+						<p className={styles.answer}>{currentQuestion?.answer}</p>
+					)}
 				</div>
 				<div className={styles.btnBox}>
-				{showAnswer && (
-				<Button
-					textColor='var(--negation-color)'
-					bgColor='var(--main-bg-color)'
-					onClick={handleWrongAnswer}
-				>
-					✘
-				</Button>
-			)}
-			{!showAnswer && (
-				<Button
-					textColor='var(--menu-color)'
-					bgColor='var(--main-bg-color)'
-					onClick={() => setShowAnswer(true)}
-				>
-					Display answer
-				</Button>
-			)}
+					{showAnswer && (
+						<Button
+							textColor='var(--negation-color)'
+							bgColor='var(--main-bg-color)'
+							onClick={handleWrongAnswer}
+						>
+							✘
+						</Button>
+					)}
+					{!showAnswer && (
+						<Button
+							textColor='var(--menu-color)'
+							bgColor='var(--main-bg-color)'
+							onClick={() => setShowAnswer(true)}
+						>
+							Display answer
+						</Button>
+					)}
 
-			{showAnswer && (
-				<Button
-					textColor='var(--positive-color)'
-					bgColor='var(--main-bg-color)'
-					onClick={() => handleCorrectAnswer(currentQuestion?.id)}
-				>
-					✔
-				</Button>
-			)}
+					{showAnswer && (
+						<Button
+							textColor='var(--positive-color)'
+							bgColor='var(--main-bg-color)'
+							onClick={() => handleCorrectAnswer(currentQuestion?.id)}
+						>
+							✔
+						</Button>
+					)}
 				</div>
 				<div>
-					<p className={styles.progress}>Progress:<strong> {progress} / {questions.length}</strong> </p>
+					<p className={styles.progress}>
+						Progress:
+						<strong>
+							{" "}
+							{progress} / {questions.length}
+						</strong>{" "}
+					</p>
 				</div>
-				<p className={styles.instructions}>Answer the question as best you can, view the answer and see if you answered correctly. <br/> Then click on the corresponding button.</p>
+				<p className={styles.instructions}>
+					Answer the question as best you can, view the answer and see if you
+					answered correctly. <br /> Then click on the corresponding button.
+				</p>
 			</div>
 		)
 	if (testQuestions.length === 0)
 		return <p className='result'>Úspěšnost testu byla {result}%</p>
 }
-

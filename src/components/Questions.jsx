@@ -1,16 +1,29 @@
-import { useState } from "react"
+import { useReducer, useState } from "react"
 import styles from "./Questions.module.css"
 import SearchQuestion from "./SearchQuestion"
 import Question from "./Question"
 
-export default function Questions({ questions }) {
-	const [searchQuery, setSearchQuery] = useState("")
-	const[isOpen,setIsOpen]=useState(null)
+const initialState={
+	searchQuery:"",
+	isOpen:null,
+}
 
-	function handlToggleOpen(id){
-        setIsOpen(id === isOpen ? null : id)
-    }
-	
+function reducer(state,action){
+	switch(action.type){
+		case "setSearchQuery":
+			return{...state,searchQuery:action.payload}
+		case "toggleOpen":
+			return{...state,isOpen:action.payload===state.isOpen ? null : action.payload}
+		default:
+			throw new Error("Unknown action")
+	}
+
+}
+
+export default function Questions({ questions }) {
+
+	const[{searchQuery,isOpen},dispatch]=useReducer(reducer,initialState)
+
 	const searchedQuestions =
 		searchQuery.length > 0
 			? questions.filter((question) =>
@@ -21,10 +34,17 @@ export default function Questions({ questions }) {
 
 	return (
 		<div>
-			<SearchQuestion searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+			<SearchQuestion dispatch={dispatch} />
 			<ul className={styles.list}>
 				{searchedQuestions.map((question) => (
-					<Question key={question.id} question={question.question} answer={question.answer} id={question.id} isOpen={question.id===isOpen} onToggleOpen={()=>handlToggleOpen(question.id)}/>
+					<Question key={question.id} 
+					question={question.question} 
+					answer={question.answer} 
+					id={question.id} 
+					isOpen={question.id===isOpen} 
+					// onToggleOpen={()=>handlToggleOpen(question.id)}
+					dispatch={dispatch}
+					/>
 				))}
 			</ul>
 		</div>

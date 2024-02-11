@@ -1,7 +1,7 @@
 import styles from "./SearchQuestion.module.css"
 import { IoIosSearch } from "react-icons/io";
 
-export default function SearchQuestion({ setSearchQuery }) {
+export default function SearchQuestion({ dispatch }) {
 	return (
 		<form className={styles.form}>
 			<div className={styles.formBox}>
@@ -12,7 +12,7 @@ export default function SearchQuestion({ setSearchQuery }) {
 					type='text'
 					placeholder='Search in questions and answers'
 					className={styles.input}
-					onChange={(e) => setSearchQuery(e.target.value)}
+					onChange={(e) => dispatch({type:"setSearchQuery",payload:e.target.value})}
 				/>
 			</div>
 		</form>

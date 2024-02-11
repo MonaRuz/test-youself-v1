@@ -8,14 +8,15 @@ export default function Question({
 	question,
 	answer,
 	isOpen,
-	onToggleOpen,
+	// onToggleOpen,
+    dispatch
 }) {
 	return (
 		<div>
 			<li className={question}>
 				<div
 					className={styles.questionBox}
-					onClick={() => onToggleOpen()}
+					onClick={()=>dispatch({type:"toggleOpen",payload:id})}
 				>
 					<p className={!isOpen?`${styles.question}`:`${styles.currentQuestion}`}>{question}</p>
 					<p className={styles.btn}>
