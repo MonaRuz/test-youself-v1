@@ -11,7 +11,7 @@ export default function Category({questions}) {
 				<span className={styles.values}>{questions.length}</span> questions
 			</p>
 			<p>
-				Progress: <span className={styles.values}>X / X</span>
+				Progress: <span className={styles.values}>X / {questions.length}</span>
 			</p>
 			<p>
 				Current score <span className={styles.values}> X </span>%

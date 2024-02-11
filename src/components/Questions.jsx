@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react"
+import { useReducer} from "react"
 import styles from "./Questions.module.css"
 import SearchQuestion from "./SearchQuestion"
 import Question from "./Question"
@@ -42,7 +42,6 @@ export default function Questions({ questions }) {
 					answer={question.answer} 
 					id={question.id} 
 					isOpen={question.id===isOpen} 
-					// onToggleOpen={()=>handlToggleOpen(question.id)}
 					dispatch={dispatch}
 					/>
 				))}
