@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { QuestionsProvider } from "..//contexts/QuestionsContext"
+import { QuestionsProvider } from "./contexts/QuestionsContext"
 import Homepage from "./pages/Homepage"
 import Login from "./pages/Login"
 import AppLayout from "./pages/AppLayout"

@@ -11,8 +11,9 @@ export default function Test() {
 
 	const{questions,testQuestions,setTestQuestions}=useQuestions()
 
-	
-	
+	const result = Math.ceil(
+		100 - (percentCounter / (questions.length + percentCounter)) * 100
+	)
 
 	function getRandomQuestion(min, max) {
 		min = Math.ceil(min)
