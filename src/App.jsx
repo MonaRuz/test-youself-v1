@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-
+import { QuestionsProvider } from "..//contexts/QuestionsContext"
 import Homepage from "./pages/Homepage"
 import Login from "./pages/Login"
 import AppLayout from "./pages/AppLayout"
@@ -12,50 +12,52 @@ import Edit from "./components/Edit"
 
 export default function App() {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route
-					index
-					element={<Homepage />}
-				/>
-				<Route
-					path='login'
-					element={<Login />}
-				/>
-				<Route
-					path='app'
-					element={<AppLayout />}
-				>
+		<QuestionsProvider>
+			<BrowserRouter>
+				<Routes>
 					<Route
 						index
-						element={<Categories />}
+						element={<Homepage />}
 					/>
 					<Route
-						path='categories'
-						element={<Categories />}
+						path='login'
+						element={<Login />}
 					/>
 					<Route
-						path='test'
-						element={<Test />}
-					/>
+						path='app'
+						element={<AppLayout />}
+					>
+						<Route
+							index
+							element={<Categories />}
+						/>
+						<Route
+							path='categories'
+							element={<Categories />}
+						/>
+						<Route
+							path='test'
+							element={<Test />}
+						/>
+						<Route
+							path='questions'
+							element={<Questions />}
+						/>
+						<Route
+							path='questions/:id'
+							element={<Edit />}
+						/>
+						<Route
+							path='new-category'
+							element={<CreateNewCategory />}
+						/>
+					</Route>
 					<Route
-						path='questions'
-						element={<Questions />}
+						path='*'
+						element={<PageNotFound />}
 					/>
-					<Route
-						path='questions/:id'
-						element={<Edit />}
-					/>
-					<Route
-						path='new-category'
-						element={<CreateNewCategory />}
-					/>
-				</Route>
-				<Route
-					path='*'
-					element={<PageNotFound />}
-				/>
-			</Routes>
-		</BrowserRouter>
+				</Routes>
+			</BrowserRouter>
+		</QuestionsProvider>
 	)
 }

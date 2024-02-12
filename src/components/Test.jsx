@@ -5,15 +5,14 @@ import {useQuestions} from "..//contexts/QuestionsContext"
 
 export default function Test() {
 	const [showAnswer, setShowAnswer] = useState(false)
-	const [percentCouter, setpercentCouter] = useState(0)
+	const [percentCounter, setpercentCounter] = useState(0)
 	const [progress, setProgress] = useState(1)
 	const [currentQuestion, setCurrentQuestion] = useState(null)
 
 	const{questions,testQuestions,setTestQuestions}=useQuestions()
 
-	const result = Math.ceil(
-		100 - (percentCouter / (questions.length + percentCouter)) * 100
-	)
+	
+	
 
 	function getRandomQuestion(min, max) {
 		min = Math.ceil(min)
@@ -26,7 +25,7 @@ export default function Test() {
 			testQuestions[getRandomQuestion(0, testQuestions.length)]
 		)
 		setShowAnswer(false)
-		setpercentCouter(percentCouter + 1)
+		setpercentCounter(percentCounter + 1)
 	}
 
 	function handleCorrectAnswer(id) {

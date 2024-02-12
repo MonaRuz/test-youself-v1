@@ -1,13 +1,10 @@
 import styles from "./Box.module.css"
-import { Outlet } from "react-router-dom";
-import { QuestionsProvider } from "..//contexts/QuestionsContext"
+import { Outlet } from "react-router-dom"
 
 export default function Box() {
-  return (
-    <div className={styles.box}>
-      <QuestionsProvider>
-        <Outlet/>
-      </QuestionsProvider>
-    </div>
-  )
+	return (
+		<div className={styles.box}>
+			<Outlet />
+		</div>
+	)
 }
