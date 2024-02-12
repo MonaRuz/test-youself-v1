@@ -8,7 +8,6 @@ export default function Question({
 	question,
 	answer,
 	isOpen,
-	// onToggleOpen,
     dispatch
 }) {
 	return (
