@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import Button from "./Button"
 import styles from "./Test.module.css"
+import { useQuestions } from "..//contexts/QuestionsContext"
 
-export default function Test({ questions, testQuestions, setTestQuestions }) {
+export default function Test() {
+	const{questions, testQuestions, setTestQuestions}=useQuestions()
 	const [showAnswer, setShowAnswer] = useState(false)
 	const [percentCouter, setpercentCouter] = useState(0)
 	const [progress, setProgress] = useState(1)

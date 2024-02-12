@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import styles from "./Category.module.css"
 import Button from "./Button"
+import { useQuestions } from "..//contexts/QuestionsContext"
 
-export default function Category({questions}) {
+export default function Category() {
+	const{questions}=useQuestions()
 	const navigate=useNavigate()
 	return (
 		<div className={styles.category}>

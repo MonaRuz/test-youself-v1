@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { useState, useEffect } from "react"
+
 import Homepage from "./pages/Homepage"
 import Login from "./pages/Login"
 import AppLayout from "./pages/AppLayout"
@@ -10,31 +10,7 @@ import Questions from "./components/Questions"
 import CreateNewCategory from "./components/CreateNewCategory"
 import Edit from "./components/Edit"
 
-const BASE_URL = "http://localhost:8000"
-
 export default function App() {
-	const [questions, setQuestions] = useState([])
-	const [testQuestions, setTestQuestions] = useState([])
-	const [error, setError] = useState("")
-
-	useEffect(function () {
-		async function getQuestions() {
-			try {
-				const res = await fetch(`${BASE_URL}/React`)
-
-				if (!res.ok)
-					throw new Error("Something went wrong with questions fetching.")
-
-				const data = await res.json()
-				setQuestions(data)
-				setTestQuestions(data)
-			} catch (err) {
-				console.error(err.message)
-        setError("Something went wrong with questions fetching!")
-			}
-		}
-		getQuestions()
-	}, [])
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -52,29 +28,23 @@ export default function App() {
 				>
 					<Route
 						index
-						element={<Categories error={error} questions={questions} />}
+						element={<Categories />}
 					/>
 					<Route
 						path='categories'
-						element={<Categories error={error} questions={questions} />}
+						element={<Categories />}
 					/>
 					<Route
 						path='test'
-						element={
-							<Test
-								questions={questions}
-								testQuestions={testQuestions}
-								setTestQuestions={setTestQuestions}
-							/>
-						}
+						element={<Test />}
 					/>
 					<Route
 						path='questions'
-						element={<Questions questions={questions} />}
+						element={<Questions />}
 					/>
 					<Route
 						path='questions/:id'
-						element={<Edit questions={questions} />}
+						element={<Edit />}
 					/>
 					<Route
 						path='new-category'

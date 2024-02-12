@@ -2,6 +2,7 @@ import { useReducer} from "react"
 import styles from "./Questions.module.css"
 import SearchQuestion from "./SearchQuestion"
 import Question from "./Question"
+import { useQuestions } from "..//contexts/QuestionsContext"
 
 const initialState={
 	searchQuery:"",
@@ -20,7 +21,8 @@ function reducer(state,action){
 
 }
 
-export default function Questions({ questions }) {
+export default function Questions() {
+	const{questions}=useQuestions()
 
 	const[{searchQuery,isOpen},dispatch]=useReducer(reducer,initialState)
 
