@@ -1,54 +1,20 @@
-import { useEffect, useState } from "react"
 import Button from "./Button"
 import styles from "./Test.module.css"
-import { useQuestions } from "..//contexts/QuestionsContext"
+import useTest from "../hooks/useTest"
+import { useQuestions } from "../contexts/QuestionsContext"
 
 export default function Test() {
-	const{questions, testQuestions, setTestQuestions}=useQuestions()
-	const [showAnswer, setShowAnswer] = useState(false)
-	const [percentCouter, setpercentCouter] = useState(0)
-	const [progress, setProgress] = useState(1)
-	const [currentQuestion, setCurrentQuestion] = useState(null)
 
-	const result = Math.ceil(
-		100 - (percentCouter / (questions.length + percentCouter)) * 100
-	)
-
-	function getRandomQuestion(min, max) {
-		min = Math.ceil(min)
-		max = Math.floor(max)
-		return Math.floor(Math.random() * (max - min) + min)
-	}
-
-	function handleWrongAnswer() {
-		setCurrentQuestion(
-			testQuestions[getRandomQuestion(0, testQuestions.length)]
-		)
-		setShowAnswer(false)
-		setpercentCouter(percentCouter + 1)
-	}
-
-	function handleCorrectAnswer(id) {
-		let updatedQuestions = testQuestions.filter((question) => {
-			return question.id !== id
-		})
-		setTestQuestions(updatedQuestions)
-
-		setShowAnswer(false)
-		setCurrentQuestion(
-			updatedQuestions[getRandomQuestion(0, updatedQuestions.length)]
-		)
-		setProgress(progress + 1)
-	}
-
-	useEffect(
-		function () {
-			setCurrentQuestion(
-				testQuestions[getRandomQuestion(0, testQuestions.length)]
-			)
-		},
-		[testQuestions]
-	)
+	const { questions, testQuestions } = useQuestions()
+	const {
+		showAnswer,
+		setShowAnswer,
+		progress,
+		currentQuestion,
+		result,
+		handleWrongAnswer,
+		handleCorrectAnswer,
+	} = useTest()
 
 	if (testQuestions.length !== 0)
 		return (
@@ -107,6 +73,7 @@ export default function Test() {
 				</p>
 			</div>
 		)
+		
 	if (testQuestions.length === 0)
 		return <p className='result'>Úspěšnost testu byla {result}%</p>
 }
