@@ -9,6 +9,7 @@ function QuestionsProvider({ children }) {
 	const [testQuestions, setTestQuestions] = useState([])
 	const [error, setError] = useState("")
 	const[categories,setCategories]=useState([])
+	const[category,setCategory]=useState("")
 
 	useEffect(function () {
 		async function getQuestions() {
@@ -31,8 +32,26 @@ function QuestionsProvider({ children }) {
 		getQuestions()
 	}, [])
 
+	async function getQuestions() {
+		try {
+			const res = await fetch(`${BASE_URL}/${category}`)
+
+			if (!res.ok)
+				throw new Error("Something went wrong with questions fetching.")
+
+			const data = await res.json()
+			console.log(data);
+			setCategories(data)
+			setQuestions(data)
+			setTestQuestions(data)
+		} catch (err) {
+			console.error(err.message)
+			setError("Something went wrong with questions fetching!")
+		}
+	}
+
 	return (
-		<QuestionsContext.Provider value={{ questions, testQuestions,setTestQuestions, error }}>
+		<QuestionsContext.Provider value={{ questions, testQuestions,setTestQuestions, error,getQuestions,categories }}>
 			{children}
 		</QuestionsContext.Provider>
 	)

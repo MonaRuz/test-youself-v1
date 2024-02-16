@@ -5,10 +5,9 @@ import Error from "./Error"
 import { useQuestions } from "..//contexts/QuestionsContext"
 
 export default function Categories() {
+	const { error, categories } = useQuestions()
 
-	const{error,questions}=useQuestions()
-
-	if(error)return <Error>{error}</Error>
+	if (error) return <Error>{error}</Error>
 
 	return (
 		<>
@@ -18,14 +17,10 @@ export default function Categories() {
 				category with minimal one question and answer.
 			</p>
 			<div className={styles.box}>
-				<Category
-					cat={"React"}
-					questions={questions}
-				/>
-				{/* <Category
-					cat={"JavaScript"}
-				/> */}
 				<NewCategory />
+				{categories.map((category) => (
+					<Category category={category} key={category} />
+				))}
 			</div>
 		</>
 	)

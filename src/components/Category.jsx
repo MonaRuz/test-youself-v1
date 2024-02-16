@@ -3,12 +3,12 @@ import styles from "./Category.module.css"
 import Button from "./Button"
 import { useQuestions } from "..//contexts/QuestionsContext"
 
-export default function Category() {
+export default function Category({category}) {
 	const{questions}=useQuestions()
 	const navigate=useNavigate()
 	return (
 		<div className={styles.category}>
-			<h2 className={styles.title}>React</h2>
+			<h2 className={styles.title}>{category}</h2>
 			<p>
 				<span className={styles.values}>{questions.length}</span> questions
 			</p>
