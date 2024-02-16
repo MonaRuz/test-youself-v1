@@ -9,6 +9,7 @@ import Categories from "./components/Categories"
 import Questions from "./components/Questions"
 import CreateNewCategory from "./components/CreateNewCategory"
 import Edit from "./components/Edit"
+import NewQuestion from "./components/NewQuestion"
 
 export default function App() {
 	return (
@@ -42,6 +43,10 @@ export default function App() {
 						<Route
 							path='questions'
 							element={<Questions />}
+						/>
+						<Route
+							path='new-question'
+							element={<NewQuestion />}
 						/>
 						<Route
 							path='questions/:id'

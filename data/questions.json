@@ -1466,5 +1466,6 @@
 			"question": "Jak a proč používat async/await?",
 			"answer": "Čistší způsob psaní asynchronního kódu bez použití metody .then(). Funkce se označí jako async a uvnitř se kód, na který se má čekat, označí await, což zastaví kód uvnitř funkce, dokud se předcházející operace nedokončí."
 		}
-	]
+	],
+	"categories":["React","React-2","React-3","JavaScript"]
 }

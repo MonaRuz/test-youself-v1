@@ -3,6 +3,7 @@ import Button from "./Button"
 import styles from "./Test.module.css"
 import {useQuestions} from "..//contexts/QuestionsContext"
 
+
 export default function Test() {
 	const [showAnswer, setShowAnswer] = useState(false)
 	const [percentCounter, setpercentCounter] = useState(0)
@@ -10,6 +11,7 @@ export default function Test() {
 	const [currentQuestion, setCurrentQuestion] = useState(null)
 
 	const{questions,testQuestions,setTestQuestions}=useQuestions()
+
 
 	const result = Math.ceil(
 		100 - (percentCounter / (questions.length + percentCounter)) * 100
