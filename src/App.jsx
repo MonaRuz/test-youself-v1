@@ -11,6 +11,7 @@ import CreateNewCategory from "./components/CreateNewCategory"
 import Edit from "./components/Edit"
 import NewQuestion from "./components/NewQuestion"
 
+
 export default function App() {
 	return (
 		<QuestionsProvider>
